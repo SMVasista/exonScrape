@@ -12,13 +12,14 @@ def EEnum(strNum):
 def writeToFile(metadata, outLoc):
 	PROCESSED_DATA = []
 	GeneName = metadata[0]
-	try:
+	chromosome = ''
+	if len(metadata[1].split('p')) > 1:
 		chromosome = metadata[1].split('p')[0]
-	except:
-		try:
-			chromosome = metadata[1].split('q')[0]
-		except:
-			chromosome = NA
+	elif len(metadata[1].split('q')) > 1:
+		chromosome = metadata[1].split('q')[0]
+	else:
+		chromosome = 'NA'
+
 	geneStartPos = EEnum(metadata[2].split('-')[0])
 	for i, line in enumerate(metadata[3]):
 		ExonNo = i+1

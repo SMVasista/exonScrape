@@ -23,7 +23,7 @@ def loadGeneQueries(fileloc):
 	gene_data = fl.readLines(fileloc)
 
 	#Checking if dump data already present
-	fileList = glob(os.path.join('scrape.dump', '*'))
+	fileList = glob(os.path.join('.scrape.dump', '*'))
 	GFlist = []
 	for fil in fileList:
 		GFlist.append(os.path.basename(fil).split('.')[0])

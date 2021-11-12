@@ -23,8 +23,8 @@ def execute(urls):
 	driver = webdriver.Firefox(capabilities = cap, executable_path=driverpath)
 
 	for gene in urls.keys():
-		#try:
-		if True:
+		try:
+		#if True:
 			# get the profile URL
 			print(urls[gene])
 			driver.get(urls[gene])
@@ -48,8 +48,8 @@ def execute(urls):
 					f.write(str(elem)+'\n')
 				for elem in EXData:
 					f.write(str(elem)+'\n')
-		#except:
-		#	print("issue extracting data for gene:", gene)
-		#	pass
+		except:
+			print("issue extracting data for gene:", gene)
+			pass
 	driver.quit()
 	return 1

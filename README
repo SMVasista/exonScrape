@@ -1,0 +1,23 @@
+#BETA VERSION OF SCRAPING TOOL - EXON FEATURE DOWNLOAD#
+#IMPORTANT FILES
+main.py - Orchestrates all functions
+scrape.py - Opens up webpages in geckodriver and loads content
+curate.py - Extracts relevant text data from downloaded file
+geckodriver.bin - Lightweight browser (firefox)
+
+#HIDDEN DATA-FILES
+.gene_nxid_map.txt - Maps genes to xprot ids for scraping url
+.scrape.dump - all downloaded information is curated for future use
+
+#INSTALLATION
+>Run install_batch.sh to install dependencies
+>(selenium, parsel, bs4)
+>run main program
+
+#USAGE
+<input-file> - line seperate gene names
+<output-file> - filename output - new file will be created once program is run and information is dumped
+python2.7 main.py <input-file> <output-file>
+
+#NOTE
+Geckodriver automatically opens a browser window and opens file - pleaes do not delete this window or interfere in any way

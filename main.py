@@ -7,8 +7,8 @@ from glob import glob
 
 def loadGeneQueries(fileloc):
 	#Reading gene IDs and converting to NX Ids
-	#try:
-	if True:
+	try:
+	#if True:
 		nxid = fl.readLinesAndSplit('.gene_nxid_map.txt', ',')
 		MAP = {}
 		for line in nxid:
@@ -16,9 +16,9 @@ def loadGeneQueries(fileloc):
 
 		url_base = 'https://www.nextprot.org/entry/'
 		url_end = "/exons"
-	#except:
-	#	print("NXIDs file not found")
-	#	exit(1)
+	except:
+		print("NXIDs file not found")
+		exit(1)
 
 	gene_data = fl.readLines(fileloc)
 

@@ -45,8 +45,8 @@ def processFiles(geneList, outputfile):
 
 	for gene in geneList:
 		#Opening file
-		#try:
-		if True:
+		try:
+		#if True:
 			data = fl.readLines(os.path.join('.scrape.dump', str(gene)+'.p'))
 			chr_location = data[10].split('>')[1].split('<')[0]
 			gene_pos = data[12].split('>')[1].split('<')[0]
@@ -56,8 +56,8 @@ def processFiles(geneList, outputfile):
 				if line.split('>')[0] == '<td class="aligned-right style-scope exons-mapping-table"':
 					if len(line.split('>')[1].split('<')[0].split('-')) > 1:
 						EXONS.append(line.split('>')[1].split('<')[0])
-		HOLDER = [gene, chr_location, gene_pos, EXONS]
-		writeToFile(HOLDER, outputfile)
-		print("Successfully written Exon data for:", gene)
-		#except:
-		#	print(gene, "No datafile found")
+			HOLDER = [gene, chr_location, gene_pos, EXONS]
+			writeToFile(HOLDER, outputfile)
+			print("Successfully written Exon data for:", gene)
+		except:
+			print(gene, "datafile not usable.")
